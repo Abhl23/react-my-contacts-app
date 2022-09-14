@@ -1,0 +1,41 @@
+.contactCard{
+    color: var(--white);
+    font-weight: bold;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 5px 10px;
+    box-sizing: content-box;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+}
+
+.userAvatar{
+    font-size: 3rem;
+    color: var(--white);
+}
+
+.userInfo{
+    margin: 0.5rem 0 0 1rem;
+    /* border: 1px solid black; */
+}
+
+.contactActions{
+    margin-left: auto;
+}
+
+.viewBtn{
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.deleteBtn{
+    font-size: 1.5rem;
+    color: #ea4335;
+    margin-left: 1rem;
+}
+
+.deleteBtn:hover{
+    cursor: pointer;
+}
