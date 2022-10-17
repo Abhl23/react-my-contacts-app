@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 import { useProvideContacts } from "../hooks";
 
+// default value of the global context state
 const initialState = {
   data: [],
   loading: true,

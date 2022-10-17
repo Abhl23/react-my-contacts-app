@@ -10,7 +10,11 @@ function ContactInfo() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
+  // boolean state to show or hide the update contact form
   const [editMode, setEditMode] = useState(false);
+
+  // boolean state for disabling the update contact button
   const [updatingContact, setUpdatingContact] = useState(false);
 
   const contacts = useContacts();
@@ -19,6 +23,7 @@ function ContactInfo() {
 
   const { addToast } = useToasts();
 
+  // to acquire the contact from the state prop of Link component
   const location = useLocation();
   const { contact } = location.state;
 
@@ -31,6 +36,7 @@ function ContactInfo() {
   const handleUpdateContact = async () => {
     setUpdatingContact(true);
 
+    // checks if any of the fields are empty
     if (!name || !phone || !email) {
       setUpdatingContact(false);
 
@@ -39,8 +45,10 @@ function ContactInfo() {
       });
     }
 
+    // api call is extremely slow
     // const response = await updateContact({ name, phone, email, id: contactId });
 
+    // updates the contact in global state
     contacts.updateContactInState({ name, phone, email, id: contact.id });
 
     setUpdatingContact(false);
@@ -113,12 +121,14 @@ function ContactInfo() {
         </div>
       ) : (
         <div className="mt-4 d-flex flex-column">
+          {/* toggles the editMode */}
           <button
             className="btn btn-primary mb-2"
             onClick={() => setEditMode(true)}
           >
             Edit Contact
           </button>
+          {/* takes back to Home page */}
           <Link to="/">
             <button className="btn btn-outline-primary">Go Back</button>
           </Link>

@@ -2,6 +2,7 @@ import { CreateContact, Loader, ContactCard } from "../components";
 import { useContacts } from "../hooks";
 
 function Home() {
+  // customHook used to get the current context value
   const contacts = useContacts();
 
   return (
@@ -22,7 +23,7 @@ function Home() {
       </h2>
       <CreateContact />
       <div style={{ marginTop: "1rem" }}>
-        {contacts.loading && <Loader />}
+        {contacts.loading && <Loader />}        {/* display loader if the contacts are still being fetched */}
         {contacts.data.map((contact) => (
           <ContactCard contact={contact} key={contact.id} />
         ))}

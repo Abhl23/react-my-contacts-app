@@ -3,7 +3,7 @@ import { useToasts } from "react-toast-notifications";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser, faArrowUpRightFromSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import { deleteContact } from "../api";
+// import { deleteContact } from "../api";
 import { useContacts } from "../hooks";
 import styles from "../styles/contactcard.module.css";
 
@@ -13,7 +13,8 @@ function ContactCard({ contact }) {
   const { addToast } = useToasts();
 
   const handleDeleteContact = async () => {
-    await deleteContact(contact.id);
+    // handles api call for deleting a contact
+    // await deleteContact(contact.id);      api call is extremely slow
 
     contacts.deleteContactFromState(contact.id);
 
@@ -30,7 +31,7 @@ function ContactCard({ contact }) {
         <p>{contact.phone}</p>
       </div>
       <div className={styles.contactActions}>
-        <Link to={`/contact-info/${contact.id}`} state={{contact}}>
+        <Link to={`/contact-info/${contact.id}`} state={{contact}}>     {/* passing the current contact as a prop to ContactInfo page */}
           <FontAwesomeIcon className={styles.viewBtn} icon={faArrowUpRightFromSquare} />
         </Link>
         <FontAwesomeIcon className={styles.deleteBtn} onClick={handleDeleteContact} icon={faTrash} />

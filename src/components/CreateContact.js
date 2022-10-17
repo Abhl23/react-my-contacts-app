@@ -10,21 +10,28 @@ function CreateContact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
+  // boolean state to show and hide the create contact form
   const [createMode, setCreateMode] = useState(false);
+
+  // boolean state for disabling the create contact button
   const [creatingContact, setCreatingContact] = useState(false);
 
   const contacts = useContacts();
   const { addToast } = useToasts();
 
+  // clears the create contact form
   const clearForm = () => {
     setName("");
     setPhone("");
     setEmail("");
   };
 
+  // handles creating a new contact
   const handleCreateContact = async () => {
     setCreatingContact(true);
 
+    // checks if any of the fields are empty
     if (!name || !phone || !email) {
       setCreatingContact(false);
 
@@ -33,8 +40,10 @@ function CreateContact() {
       });
     }
 
+    // api call to create a contact
     const response = await createContact({ name, phone, email });
 
+    // adds the new contact to the global state
     contacts.addContactToState(response.data);
 
     addToast("New Contact Added!", {
@@ -77,6 +86,7 @@ function CreateContact() {
             >
               {creatingContact ? "Creating Contact..." : "Create Contact"}
             </button>
+            {/* hides the create contact form */}
             <button
               className="btn btn-outline-primary"
               style={{ width: "25rem", marginTop: 15 }}
@@ -88,6 +98,7 @@ function CreateContact() {
           </div>
         </>
       ) : (
+        // displays the create contact form
         <button
           className="btn btn-primary"
           style={{ width: "25rem" }}
