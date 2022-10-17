@@ -4,7 +4,7 @@ react-router-dom => It helps build single-page web applications and enables you 
 
 react-toast-notifications => Toast Notifications are popup messages that are added so as to display a message to a user. It can be a success message, warning message, or custom message.
 
-# Framework
+# Frameworks used in the Project
 
 Bootstrap => It is the most popular HTML, CSS, and JavaScript framework for developing responsive, mobile-first websites.
 
@@ -15,33 +15,6 @@ Bootstrap => It is the most popular HTML, CSS, and JavaScript framework for deve
 2. You can update an exisiting contact.
 
 3. You can delete a contact.
-
-# Folder Structure
-
-.
-└── src/
-    ├── api/
-    │   └── index.js
-    ├── components/
-    │   ├── App.js
-    │   ├── ContactCard.js
-    │   ├── CreateContact.js
-    │   ├── Loader.js
-    │   └── index.js
-    ├── hooks/
-    │   └── index.js
-    ├── pages/
-    │   ├── Home.js
-    │   ├── ContactInfo.js
-    │   └── index.js
-    ├── providers/
-    │   └── ContactsProvider.js
-    ├── styles/
-    │   ├── contactcard.module.css
-    │   └── index.css
-    ├── utils/
-    │   └── constants.js
-    └── index.js
 
 # Getting Started with Create React App
 
